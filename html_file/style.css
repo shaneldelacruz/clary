@@ -1,0 +1,30 @@
+.heading { /*title's box format*/
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.title_text { /*title's text format*/
+  color: lightgreen;
+  font-family: cursive;
+  font-size: 300%;
+  text-align: center;
+}
+.menu { /*whole grid format*/
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  grid-template-rows: 1fr;
+  grid-gap: 20px;
+
+}
+.box { /*boxes format*/
+  height: 100%;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  background-color: #A3E4D7  ;
+}
+
+.text { /* text in boxes format*/
+  color: white;
+  font-family: verdana;
+  font-size: 150%;
+}
