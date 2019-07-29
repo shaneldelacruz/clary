@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{teacher}}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+      h1 {
+        font-family: verdana;
+      }
+
+      h2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 15px 0;
+        padding: 0 5px;
+        font-family: 'Montserrat', sans-serif;
+        color: #D3BC93;
+        text-shadow: 1px 1px black;
+      }
+      #meme-div{
+      width: 450px;
+      height: 450px;
+      background-size: 100%;
+      position: relative;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>{{teacher}}</h1>
+    <!--The image needs to be rendered for each new meme
+    so set the div's background-image property inline -->
+    <div id="meme-div">
+    <h2>{{class}}</h2>
+    </div>
+    <form method="post" action = "/teacher'">
+
+      <div>
+        <label for="input">Testimonial</label>
+        <input type="text" name="input">
+      </div>
+      <!-- Submit button -->
+      <button type="submit" >Submit</button>
+    </form>
+
+  </body>
+</html>
