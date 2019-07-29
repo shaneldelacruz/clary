@@ -19,7 +19,7 @@
         color: #D3BC93;
         text-shadow: 1px 1px black;
       }
-      #meme-div{
+      #classTitle{
       width: 450px;
       height: 450px;
       background-size: 100%;
@@ -30,16 +30,19 @@
 
   <body>
     <h1>{{teacher}}</h1>
-    <!--The image needs to be rendered for each new meme
-    so set the div's background-image property inline -->
-    <div id="meme-div">
+
+    <div id="classTitle">
     <h2>{{class}}</h2>
     </div>
-    <form method="post" action = "/teacher'">
 
+    {% for message in message_list %}
+      <h3>{{message}}</h3>
+    {% endfor %}
+
+    <form method="post" action = "/teacher">
       <div>
-        <label for="input">Testimonial</label>
-        <input type="text" name="input">
+        <label for="inputT">Testimonial</label>
+        <input type="text" name="inputT"></input>
       </div>
       <!-- Submit button -->
       <button type="submit" >Submit</button>
