@@ -25,7 +25,6 @@ class Testimonial(ndb.Model):
   classname = ndb.StringProperty(required=True)
   message = ndb.StringProperty(required=True)
 
-
 class TeacherHandler(webapp2.RequestHandler):
 
     def get(self):
@@ -38,14 +37,16 @@ class TeacherHandler(webapp2.RequestHandler):
 
     def post(self):
         template = jinja_env.get_template('html_file/teacher.html')
-        student_input = self.request.get('inputT')
-        user_testimonial = Testimonial(teacher="Professor", classname="English 1A", message=student_input)
-        user_testimonial.put()
 
-        testimonial_list = []
+        student_input = self.request.get('inputT')
+        professorENGL = Testimonial(teacher="Professor", classname="English 1A", message=student_input)
+        # ^ new object & add user input to object
+        professorENGL.put() #store object in db
+
+        testimonial_list = [] #create list
         for count in Testimonial.query().fetch():
-            testimonial_list.append(count.message)
-        ENGL1A.update({'message_list': testimonial_list})
+            testimonial_list.append(count.message) #add new testimonial to build list
+        ENGL1A.update({'new_key': testimonial_list}) #put list in global dict
         self.response.write(template.render(ENGL1A))
 
 app = webapp2.WSGIApplication([
