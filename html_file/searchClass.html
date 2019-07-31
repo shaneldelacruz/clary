@@ -2,9 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Search by Class</title>
   </head>
   <body>
-
+    {% for itemComment in appended_list %}
+      <h3>{{itemComment}}</h3>
+    {% endfor %}
   </body>
 </html>
