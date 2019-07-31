@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{teacher}}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+      h1 {
+        font-family: cursive;
+      }
+
+      h2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 15px 0;
+        padding: 0 5px;
+        font-family: 'Montserrat', sans-serif;
+        color: #D3BC93;
+        text-shadow: 1px 1px black;
+      }
+      #classTitle{
+      width: 450px;
+      height: 450px;
+      background-size: 100%;
+      position: relative;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>{{teacher}}</h1>
+
+    <div id="classTitle">
+    <h2>{{class}}</h2>
+    </div>
+
+    {% for itemComment in appended_list %}
+      <h3>{{itemComment}}</h3>
+    {% endfor %}
+
+    <form method="post"  >
+      <div>
+        <label for="inputT">Testimonial</label>
+        <input type="text" name="inputT"></input>
+      </div>
+      <!-- Submit button -->
+      <button type="submit" >Submit</button>
+    </form>
+
+  </body>
+</html>

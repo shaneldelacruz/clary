@@ -1,0 +1,52 @@
+.heading { /*title's box format*/
+  display: grid;
+  grid-template-rows: 1fr;
+  background-image: url(https://www.thoughtco.com/thmb/2-Y9hLcCj9vjg-Wnp2Dgr7Mp8_A=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-556277727-59dbc12faad52b0010c92b3c.jpg);
+}
+.title_text { /*title's text format*/
+  color: #C0C0C0  ;
+  font-family: Lucida Calligraphy;
+  font-size: 400%;
+  text-align: center;
+}
+
+/*MENU*/
+.menu { /*whole grid format*/
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  grid-template-rows: 1fr;
+  grid-gap: 20px;
+}
+.box { /*boxes format*/
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: #CAF1F5  ;
+}
+.text { /* text in menu boxes format*/
+  color: #D2B48C;
+  font-family: verdana;
+  font-size: 150%;
+}
+
+/*BODY*/
+.body { /*body grid format*/
+  display: grid;
+  grid-template-columns: 4fr;
+  grid-template-rows: 3fr 3fr 3fr;
+  grid-gap: 2px;
+  padding-top: 20px;
+}
+.section { /*section boxes format*/
+  height: 100%;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  background-color: #55CAD3 ;
+}
+.txt {
+  color: grey;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
