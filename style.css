@@ -1,0 +1,59 @@
+body {
+background-color: #CAF1F5;
+}
+
+h1 {
+  color:#55CAD3;
+  font-size: 34px;
+}
+
+h2 {
+  color: #55CAD3;
+
+}
+
+
+
+.CreateAccountButton {
+display: flex;
+height: 50px;
+width: 40%;
+justify-content: center;
+}
+.background-color{
+background-color: aqua;
+}
+
+.g-signin2 {
+display: grid;
+height: 100%;
+width: 100%;
+justify-content: center;
+
+}
+
+
+#googlebutton{
+  display: flex;
+  width: 100%;
+
+  justify-content: center;
+}
+#create_account{
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+#handdown
+{
+  font-size: 80px;
+}
+
+
+
+*{
+  text-align: center;
+}
