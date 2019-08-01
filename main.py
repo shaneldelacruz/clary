@@ -20,19 +20,12 @@ def address(course):
     name = course['teacher'][0].lower() + course['teacher'][1:]
     return courseCode + "." + name
 
-class SearchHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_env.get_template('html_file/searchTeacher.html')
-        teacher_list = set()
-        for row in Testimonial.query().fetch():
-            teacher_list.add(row.teacher)
-        teacher_dict = {'teacher_set': teacher_list}
-        self.response.write(template.render(teacher_dict))
-
 dictOfTeachers = { "ENGL1A" : {
     'name': "ENGL1A",
-    'teacher': "Professor",
+    'teacher': "Hendel",
     'class': "English 1A",
+    'teaching_style': "60% lecture time with videos in between concepts",
+    'homework': "Assigned reading",
 },
 "CHEM30A" : {
     'name': "CHEM30A",
@@ -41,10 +34,26 @@ dictOfTeachers = { "ENGL1A" : {
 },
 "AMS1A" : {
     'name': "AMS1A",
-    'teacher': "Professor Valorie Lo",
+    'teacher': "Rycenga",
     'class': "American Studies 1A",
+    'full_name': "Jennifer Rycenga",
 },
 }
+
+classData  = dictOfTeachers.values()          #get values in dictionary
+
+
+class SearchHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('html_file/searchTeacher.html')
+        teacher_list = set()
+        for row in Testimonial.query().fetch():
+            teacher_list.add(row.teacher)
+            #a = filter(lambda x: x['teacher'] == row, classData)
+            #map(lambda x: x['teacher'], a)
+        teacher_dict = {'teacher_set': teacher_list}
+        self.response.write(template.render(teacher_dict))
+
 
 class Testimonial(ndb.Model):
   teacher = ndb.StringProperty(required=True)
@@ -56,6 +65,7 @@ class TeacherHandler(webapp2.RequestHandler):
         self.teacherDict = {}
         self.teacher = ""
         self.className = ""
+        self.homework = ""
 
     def get(self):
         self.assign_teacher()
@@ -84,19 +94,32 @@ class TeacherHandler(webapp2.RequestHandler):
         self.response.write(template.render(self.teacherDict))
 
 
-class EnglishTeacher(TeacherHandler): #create object
+class Engl1aHendel(TeacherHandler): #create object
     def assign_teacher(self):
         self.teacherDict = dictOfTeachers['ENGL1A'] #fill in var w/ English dict
         self.teacher = self.teacherDict['teacher']
         self.className = self.teacherDict['class']
+        self.homework = self.teacherDict['homework']
 
-class ChemistryTeacher(TeacherHandler):
+class Chem30a(TeacherHandler):
     def assign_teacher(self):
         self.teacherDict = dictOfTeachers['CHEM30A']
         self.teacher = self.teacherDict['teacher']
         self.className = self.teacherDict['class']
 
-class Ams1aLo(TeacherHandler):
+class Ams1aRycenga(TeacherHandler):
+    def assign_teacher(self):
+        self.teacherDict = dictOfTeachers['AMS1A']
+        self.teacher = self.teacherDict['teacher']
+        self.className = self.teacherDict['class']
+
+class Ams1aRycenga(TeacherHandler):
+    def assign_teacher(self):
+        self.teacherDict = dictOfTeachers['AMS1A']
+        self.teacher = self.teacherDict['teacher']
+        self.className = self.teacherDict['class']
+
+class Ams1aRycenga(TeacherHandler):
     def assign_teacher(self):
         self.teacherDict = dictOfTeachers['AMS1A']
         self.teacher = self.teacherDict['teacher']
@@ -105,6 +128,7 @@ class Ams1aLo(TeacherHandler):
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/search.teacher', SearchHandler),
-    ('/' + address(dictOfTeachers['ENGL1A']), EnglishTeacher),
-    ('/' + address(dictOfTeachers['CHEM30A']), ChemistryTeacher)
+    ('/' + address(dictOfTeachers['ENGL1A']), Engl1aHendel),
+    ('/' + address(dictOfTeachers['CHEM30A']), Chem30a),
+    ('/' + address(dictOfTeachers['AMS1A']), Ams1aRycenga),
 ], debug=True)
