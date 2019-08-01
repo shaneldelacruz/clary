@@ -1,10 +1,10 @@
 .heading { /*title's box format*/
   display: grid;
   grid-template-rows: 1fr;
-  background-image: url(https://www.thoughtco.com/thmb/2-Y9hLcCj9vjg-Wnp2Dgr7Mp8_A=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-556277727-59dbc12faad52b0010c92b3c.jpg);
+  background-image: url(https://www.sjpl.org/sites/default/files/images/sjsutower.jpg);
 }
 .title_text { /*title's text format*/
-  color: #C0C0C0  ;
+  color:white;
   font-family: Lucida Calligraphy;
   font-size: 400%;
   text-align: center;
