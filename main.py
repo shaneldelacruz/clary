@@ -29,22 +29,22 @@ class SearchHandler(webapp2.RequestHandler):
         teacher_dict = {'teacher_set': teacher_list}
         self.response.write(template.render(teacher_dict))
 
-ENGL1A = {
+dictOfTeachers = { "ENGL1A" : {
     'name': "ENGL1A",
     'teacher': "Professor",
     'class': "English 1A",
-}
-CHEM30A = {
+},
+"CHEM30A" : {
     'name': "CHEM30A",
     'teacher': "Scientist",
     'class': "Chemistry 30A",
-}
-AMS1A = {
+},
+"AMS1A" : {
     'name': "AMS1A",
     'teacher': "Professor Valorie Lo",
     'class': "American Studies 1A",
+},
 }
-
 
 class Testimonial(ndb.Model):
   teacher = ndb.StringProperty(required=True)
@@ -86,25 +86,25 @@ class TeacherHandler(webapp2.RequestHandler):
 
 class EnglishTeacher(TeacherHandler): #create object
     def assign_teacher(self):
-        self.teacherDict = ENGL1A #fill in var w/ English dict
+        self.teacherDict = dictOfTeachers['ENGL1A'] #fill in var w/ English dict
         self.teacher = self.teacherDict['teacher']
         self.className = self.teacherDict['class']
 
 class ChemistryTeacher(TeacherHandler):
     def assign_teacher(self):
-        self.teacherDict = CHEM30A
+        self.teacherDict = dictOfTeachers['CHEM30A']
         self.teacher = self.teacherDict['teacher']
         self.className = self.teacherDict['class']
 
 class Ams1aLo(TeacherHandler):
     def assign_teacher(self):
-        self.teacherDict = AMS1A
+        self.teacherDict = dictOfTeachers['AMS1A']
         self.teacher = self.teacherDict['teacher']
         self.className = self.teacherDict['class']
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/search.teacher', SearchHandler),
-    ('/' + address(ENGL1A), EnglishTeacher),
-    ('/' + address(CHEM30A), ChemistryTeacher)
+    ('/' + address(dictOfTeachers['ENGL1A']), EnglishTeacher),
+    ('/' + address(dictOfTeachers['CHEM30A']), ChemistryTeacher)
 ], debug=True)
