@@ -1,0 +1,31 @@
+h1{
+  color: white;
+  font-size: 45px;
+}
+
+body{
+  background-color: #CAF1F5;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.container {
+  color: #D2B48C
+}
+
+username {
+  font-size: 80px;
+}
+
+pwd {
+  font-size: 14px;
+}
+
+
+button {
+  height: 20px;
+  width: 20%;
+}
+*{
+  text-align: center;
+}

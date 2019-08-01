@@ -20,6 +20,21 @@ def address(course):
     name = course['teacher'][0].lower() + course['teacher'][1:]
     return courseCode + "." + name
 
+class LoginHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('html_file/login.html')
+        self.response.write(template.render())
+
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('html_file/about.html')
+        self.response.write(template.render())
+
+class CreateHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_env.get_template('html_file/login2.html')
+        self.response.write(template.render())
+
 dictOfTeachers = { "ENGL1A" : {
     'name': "ENGL1A",
     'teacher': "Hendel",
@@ -131,4 +146,7 @@ app = webapp2.WSGIApplication([
     ('/' + address(dictOfTeachers['ENGL1A']), Engl1aHendel),
     ('/' + address(dictOfTeachers['CHEM30A']), Chem30a),
     ('/' + address(dictOfTeachers['AMS1A']), Ams1aRycenga),
+    ('/login', LoginHandler),
+    ('/about', AboutHandler),
+    ('/login2', CreateHandler),
 ], debug=True)
