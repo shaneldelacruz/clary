@@ -1,7 +1,6 @@
 .heading { /*title's box format*/
   display: grid;
   grid-template-rows: 1fr;
-  background-image: url(https://www.sjpl.org/sites/default/files/images/sjsutower.jpg);
 }
 .title_text { /*title's text format*/
   color:white;
@@ -9,7 +8,11 @@
   font-size: 400%;
   text-align: center;
 }
-
+body{
+  background-color: #CAF1F5;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
 /*MENU*/
 .menu { /*whole grid format*/
   display: grid;
