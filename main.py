@@ -39,11 +39,13 @@ dictOfTeachers = { "ENGL1A" : {
     'name': "ENGL1A",
     'teacher': "Hendel",
     'class': "English 1A",
-    'teaching_style1': "60% lecture time with videos in between concepts",
-    'teaching_style2': "Assigned reading",
-    'teaching_style3': "",
-    'teaching_style4': "",
-    'teaching_style5': "",
+    'teaching_style1': "Engish 1A is an introductory writing course that will help you understand the writing process and the goals, dynamics, and genres of written communication. through interpretation and analysis of texts, you will learn to think clearly and write effectively as you give form and coherence to complex ideas.",
+    'teaching_style2': "All books are available in an electronic edition (e.g. kindle, nook), though pagination may vary from print editions.",
+    'teaching_style3': "The class based on a theme given to you in beginning of the semest which you will then think and write reothocally about.",
+    'teaching_style4': "Assigned reading",
+    'teaching_style5': "60% lecture time with videos in between concepts",
+    'teaching_style5': "60% lecture time with videos in between concepts",
+
 },
 "CHEM30A" : {
     'name': "CHEM30A",
@@ -57,23 +59,24 @@ dictOfTeachers = { "ENGL1A" : {
     'teacher': "Rycenga",
     'class': "American Studies 1A",
     'full_name': "Jennifer Rycenga",
-    'teaching_style1': "",
-    'teaching_style2': "",
-    'teaching_style3': "",
-    'teaching_style4': "",
-    'teaching_style5': "",
+    'teaching_style1': "American studies concludes of political, literary, artistic, economic and social development. American values, ideas and institutions from popular culture as well as traditional sources.",
+    'teaching_style2': "All books are available in an electronic edition (e.g. kindle, nook), though pagination may vary from print editions",
+    'teaching_style3': "Her exams are straightforward; they are essay format. ",
+    'teaching_style4': "Take good notes because she goes fast on lecture slides. Laptop taking notes are acceptable. Reading is not heavy all.",
+    'teaching_style5': "Email(school):jennifer.rycenga@sjsu.ed",
 
 },
-"AMS1A" : {
-    'name': "AMS1A",
-    'teacher': "Rycenga",
-    'class': "American Studies 1A",
-    'full_name': "Jennifer Rycenga",
-    'teaching_style1': "",
-    'teaching_style2': "",
-    'teaching_style3': "",
-    'teaching_style4': "",
-    'teaching_style5': "",
+"MATH30" : {
+    'name': "MATH30",
+    'teacher': "Obaid",
+    'class': "Calculus I",
+    'teaching_style1': "Calculus I class that requires a Workshop, this class consists of the fundamentals of limits, continuous functions, derivatives, fundamental theorem of calculus, integrals, ",
+    'teaching_style2': "The teacher provides review packet that is similar to the test, many students find this very helpful. ",
+    'teaching_style3': "Materials: Textbooks and notebooks",
+    'teaching_style4': "NO COMPUTERS NEEDED OR ANY ELECTRONICS DEVICES",
+    'teaching_style5': "What to expect?",
+    'teaching_style5': "Lectures with hundreds of students.",
+    'teaching_style5': "The teacher teaches at a good speed that allows the students to fully understand the concepts.",
 
 },
 }
@@ -151,17 +154,12 @@ class Ams1aRycenga(TeacherHandler):
         self.teacher = self.teacherDict['teacher']
         self.className = self.teacherDict['class']
 
-class Ams1aRycenga(TeacherHandler):
+class Math30Obdaid(TeacherHandler):
     def assign_teacher(self):
-        self.teacherDict = dictOfTeachers['AMS1A']
+        self.teacherDict = dictOfTeachers['MATH30']
         self.teacher = self.teacherDict['teacher']
         self.className = self.teacherDict['class']
 
-class Ams1aRycenga(TeacherHandler):
-    def assign_teacher(self):
-        self.teacherDict = dictOfTeachers['AMS1A']
-        self.teacher = self.teacherDict['teacher']
-        self.className = self.teacherDict['class']
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
@@ -169,6 +167,7 @@ app = webapp2.WSGIApplication([
     ('/' + address(dictOfTeachers['ENGL1A']), Engl1aHendel),
     ('/' + address(dictOfTeachers['CHEM30A']), Chem30a),
     ('/' + address(dictOfTeachers['AMS1A']), Ams1aRycenga),
+    ('/' + address(dictOfTeachers['MATH30']), Math30Obdaid),
     ('/login', LoginHandler),
     ('/about', AboutHandler),
     ('/login2', CreateHandler),
