@@ -10,11 +10,8 @@
       }
 
       h2 {
-        position: absolute;
-        left: 0;
-        right: 0;
+        text-align: center;
         margin: 15px 0;
-        padding: 0 5px;
         font-family: 'Montserrat', sans-serif;
         color: #D3BC93;
         text-shadow: 1px 1px black;
@@ -24,7 +21,12 @@
       height: 450px;
       background-size: 100%;
       position: relative;
+      padding-top:
       }
+      #center {
+        text-align: center;
+      }
+
     </style>
   </head>
 
@@ -32,9 +34,19 @@
     <h1>{{teacher}}</h1>
 
     <div id="classTitle">
-    <h2>{{class}}</h2>
+    <h2 id = "center">{{class}}</h2>
 
-    <h3>{{homework}}</h3>
+    <div class="body">
+
+    </div>
+    <h4>Teaching Style: </h4>
+    <ul>
+      <li>{{teaching_style1}}</li>
+      <li>{{teaching_style2}}</li>
+      <li>{{teaching_style3}}</li>
+      <li>{{teaching_style4}}</li>
+      <li>{{teaching_style5}}</li>
+    </ul>
     </div>
 
     {% for itemComment in appended_list %}

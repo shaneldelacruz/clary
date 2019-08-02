@@ -39,19 +39,42 @@ dictOfTeachers = { "ENGL1A" : {
     'name': "ENGL1A",
     'teacher': "Hendel",
     'class': "English 1A",
-    'teaching_style': "60% lecture time with videos in between concepts",
-    'homework': "Assigned reading",
+    'teaching_style1': "60% lecture time with videos in between concepts",
+    'teaching_style2': "Assigned reading",
+    'teaching_style3': "",
+    'teaching_style4': "",
+    'teaching_style5': "",
 },
 "CHEM30A" : {
     'name': "CHEM30A",
     'teacher': "Scientist",
     'class': "Chemistry 30A",
+    'teaching_style1': "",
+    'teaching_style2': "",
 },
 "AMS1A" : {
     'name': "AMS1A",
     'teacher': "Rycenga",
     'class': "American Studies 1A",
     'full_name': "Jennifer Rycenga",
+    'teaching_style1': "",
+    'teaching_style2': "",
+    'teaching_style3': "",
+    'teaching_style4': "",
+    'teaching_style5': "",
+
+},
+"AMS1A" : {
+    'name': "AMS1A",
+    'teacher': "Rycenga",
+    'class': "American Studies 1A",
+    'full_name': "Jennifer Rycenga",
+    'teaching_style1': "",
+    'teaching_style2': "",
+    'teaching_style3': "",
+    'teaching_style4': "",
+    'teaching_style5': "",
+
 },
 }
 
@@ -61,13 +84,13 @@ classData  = dictOfTeachers.values()          #get values in dictionary
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template('html_file/searchTeacher.html')
-        teacher_list = set()
-        for row in Testimonial.query().fetch():
-            teacher_list.add(row.teacher)
+        #teacher_list = set()
+        #for row in Testimonial.query().fetch():
+            #teacher_list.add(row.teacher)
             #a = filter(lambda x: x['teacher'] == row, classData)
             #map(lambda x: x['teacher'], a)
-        teacher_dict = {'teacher_set': teacher_list}
-        self.response.write(template.render(teacher_dict))
+        teachers = {'classData': classData}
+        self.response.write(template.render(teachers))
 
 
 class Testimonial(ndb.Model):
@@ -80,7 +103,7 @@ class TeacherHandler(webapp2.RequestHandler):
         self.teacherDict = {}
         self.teacher = ""
         self.className = ""
-        self.homework = ""
+        #self.homework = ""
 
     def get(self):
         self.assign_teacher()
@@ -114,7 +137,7 @@ class Engl1aHendel(TeacherHandler): #create object
         self.teacherDict = dictOfTeachers['ENGL1A'] #fill in var w/ English dict
         self.teacher = self.teacherDict['teacher']
         self.className = self.teacherDict['class']
-        self.homework = self.teacherDict['homework']
+
 
 class Chem30a(TeacherHandler):
     def assign_teacher(self):

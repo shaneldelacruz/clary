@@ -7,8 +7,8 @@
 
   <body>
     <ul>
-    {% for teacher in teacher_set %}
-      <li id="teacher_list"> <a href = "">{{teacher}}</a>
+    {% for class in classData %}
+      <li id="teacher_list"> <a href = "/{{class.name|lower}}.{{class.teacher|lower}}">{{class.teacher}}</a>
       </li>
     {% endfor %}
     </ul>
